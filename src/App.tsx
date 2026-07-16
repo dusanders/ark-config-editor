@@ -134,11 +134,11 @@ function App() {
 
     if (type === 'game') {
       setGameIni(nextIni)
-      setGameFileName('New_Game.ini')
+      setGameFileName('Game.ini')
       setEditableGameConfig(flattenIniSections(nextIni.sections))
     } else {
       setUserSettingsIni(nextIni)
-      setUserSettingsFileName('New_GameUserSettings.ini')
+      setUserSettingsFileName('GameUserSettings.ini')
       setEditableUserSettingsConfig(flattenIniSections(nextIni.sections))
     }
   }
@@ -146,7 +146,7 @@ function App() {
   const handleDownload = async () => {
     if (!gameIni) return
 
-    downloadService.downloadIniFile(gameIni.rawContent, 'New_Game.ini')
+    downloadService.downloadIniFile(gameIni.rawContent, 'Game.ini')
   }
 
   const handleAddSpawnReplacerToConfig = (snippet: string) => {
@@ -389,7 +389,7 @@ function App() {
                   {gameIni && (
                     <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-900/70 px-3 py-3 text-sm text-slate-400">
                       <div>
-                        <div className="font-medium text-slate-200">{gameFileName || gameIni.url}</div>
+                        <div className="font-medium text-slate-200">{gameFileName || 'Game.ini'}</div>
                         <div className="mt-1">{gameIni.sections.length} sections</div>
                       </div>
                       <button
@@ -432,13 +432,13 @@ function App() {
                   {userSettingsIni && (
                     <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-900/70 px-3 py-3 text-sm text-slate-400">
                       <div>
-                        <div className="font-medium text-slate-200">{userSettingsFileName || userSettingsIni.url}</div>
+                        <div className="font-medium text-slate-200">{userSettingsFileName || 'GameUserSettings.ini'}</div>
                         <div className="mt-1">{userSettingsIni.sections.length} sections</div>
                       </div>
                       <button
                         type="button"
                         className="rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1.5 font-medium text-violet-200 transition hover:border-violet-400 hover:bg-violet-500/20"
-                        onClick={() => downloadService.downloadIniFile(userSettingsIni.rawContent, 'New_GameUserSettings.ini')}
+                        onClick={() => downloadService.downloadIniFile(userSettingsIni.rawContent, 'GameUserSettings.ini')}
                       >
                         Download
                       </button>

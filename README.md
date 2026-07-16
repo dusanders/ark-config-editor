@@ -1,75 +1,66 @@
-# React + TypeScript + Vite
+# ARK Config Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ARK Config Editor is a browser-based tool for working with ARK: Survival Evolved configuration files. It helps you upload, inspect, edit, and download Game.ini and GameUserSettings.ini files without needing to hand-edit raw INI content.
 
-Currently, two official plugins are available:
+## What this project does
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This app provides a simple workflow for ARK server config management:
 
-## React Compiler
+- Create or upload a Game.ini file
+- Create or upload a GameUserSettings.ini file
+- Edit settings through a structured interface
+- Add NPC replacement entries with the spawn replacer helper
+- Apply difficulty override helpers for user settings
+- Download the updated INI files for use in your server setup
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Supports editing common ARK config sections and values
+- Includes sample INI files to get started quickly
+- Provides helpers for advanced config tasks such as spawn replacement and difficulty overrides
+- Runs as a Vite + React web app
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- TypeScript
+- Vite
+- ESLint
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Development
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Install dependencies:
 
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Start the local development server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run dev
 ```
+
+## Build
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+## Deploy
+
+Deploy the app to GitHub Pages:
+
+```bash
+npm run deploy
+```
+
+The deployment script builds the app and publishes the contents of the dist folder using gh-pages.
+
+## Project structure
+
+- src/components: UI components for the different config editors and helpers
+- src/services: INI parsing, upload, and download logic
+- src/assets: example INI files used as starting points
