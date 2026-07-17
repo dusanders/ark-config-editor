@@ -2,6 +2,12 @@
 
 ARK Config Editor is a browser-based tool for working with ARK: Survival Evolved configuration files. It helps you upload, inspect, edit, and download Game.ini and GameUserSettings.ini files without needing to hand-edit raw INI content.
 
+## Demo
+
+View the live demo here:
+
+- https://dusanders.github.io/ark-config-editor/
+
 ## What this project does
 
 This app provides a simple workflow for ARK server config management:
